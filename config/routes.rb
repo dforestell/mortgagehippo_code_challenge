@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/coins/value', to: "coins#value"
+  resources :coins, except: [:new, :edit]
+  resources :transactions, only: [:index]
+  resources :deposits, controller: 'transactions', only: [:create], action: "make_deposit"
+  resources :withdraws, controller: 'transactions', only: [:create], action: "make_withdrawl"
+  resources :users do
+  	resources :transactions, only: [:index], action: "user_transactions"
+  end
 end
