@@ -1,0 +1,1 @@
+coins_controller.rb
