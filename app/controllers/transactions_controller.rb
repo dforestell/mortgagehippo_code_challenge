@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
 	end
 
 	def make_withdrawl
-		@withdrawl = Transaction.new(transaction_type: "Withdrawl", coin_type: params[:coin_type], user_id: 1)
+		@withdrawl = Transaction.new(transaction_type: "Withdrawl", coin_type: params[:coin_type], user_id: valid_user.id)
 		@coin = Coin.find_by(name: params[:coin_type])
 		if @coin.nil?
 			render json: {status: "error", code: 4000, message: "Sorry but this machine does not deal with that type of coin currently"}
@@ -26,7 +26,7 @@ class TransactionsController < ApplicationController
 	end
 
 	def make_deposit
-		@deposit = Transaction.new(transaction_type: "Deposit", coin_type: params[:coin_type], user_id: 1)
+		@deposit = Transaction.new(transaction_type: "Deposit", coin_type: params[:coin_type], user_id: valid_user.id)
 		@coin = Coin.find_by(name: params[:coin_type])
 		if @coin.nil?
 			render json: {status: "error", code: 4000, message: "Sorry but this machine does not deal with that type of coin currently"}
