@@ -35,12 +35,7 @@ class CoinsController < ApplicationController
 	end
 
 	def value
-		@coins = Coin.all
-		@sum = 0
-		@coins.each do |coin| 
-			coin_total = coin.value * coin.quantity
-			@sum += coin_total
-		end
+		@sum = Coin.get_value
 		render json: {value: @sum, status: "ok", code: 200, message: "Total Value of all existing coins is #{@sum}"}
 	end
   
