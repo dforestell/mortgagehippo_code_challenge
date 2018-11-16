@@ -14,6 +14,14 @@ class CoinsController < ApplicationController
 		end
 	end
 
+	def show
+		@coin = Coin.find(params[:id])
+		p @coin
+		render json: @coin, status: :ok
+		
+
+	end
+
 	def update
 		@coin= Coin.find(params[:id])
 		@coin.update(coin_params)
