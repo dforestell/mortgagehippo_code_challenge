@@ -2,12 +2,11 @@ class CoinsController < ApplicationController
 
 	def index
 		@coins = Coin.all
-		p params
 		render json: @coins, status: :ok
 	end
 
 	def create
-		@coin = Coin.new(name: params[:name], value: params[:value])
+		@coin = Coin.new(coin_params)
 		if @coin.save
 			render json: @coin, status: :created
 		else
@@ -15,4 +14,21 @@ class CoinsController < ApplicationController
 		end
 	end
 
+	def update
+		@coin= Coin.find(params[:id])
+		@coin.update(coin_params)
+		render json: @coin, status: :updated
+	end
+
+	def destroy
+		@coin= Coin.find(params[:id])
+		@coin.destroy
+	end
+
+  
+  private
+
+  def coin_params
+    params.permit(:name, :value)
+  end
 end
