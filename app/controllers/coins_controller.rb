@@ -7,7 +7,12 @@ class CoinsController < ApplicationController
 	end
 
 	def create
-		p params.name
+		@coin = Coin.new(name: params[:name], value: params[:value])
+		if @coin.save
+			render json: @coin, status: :created
+		else
+			render json: {status: "error", code: 4000, message: "We Couldn't Create your coin, make sure coin name is unique"}
+		end
 	end
 
 end
