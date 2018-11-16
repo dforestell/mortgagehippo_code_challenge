@@ -9,6 +9,7 @@ class NotifyAdmins < ActionMailer::Base
 
   def low_quantity(coin)
   	@coin = coin
+  	@total = Coin.get_value
     mail(subject: "#{@coin.name} has a low balance")
   end
 end
