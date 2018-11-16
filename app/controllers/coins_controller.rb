@@ -8,9 +8,10 @@ class CoinsController < ApplicationController
 	def create
 		@coin = Coin.new(coin_params)
 		if @coin.save
+			NotifyAdmins.send_coin_creation(@coin).deliver
 			render json: @coin, status: :created
 		else
-			render json: {status: "error", code: 4000, message: "We Couldn't Create your coin, make sure coin name is unique"}
+			render json: {status: "error", code: 4000, message: "We Couldn't Create your coin, make sure coin name is unique and has the proper parameters"}
 		end
 	end
 
