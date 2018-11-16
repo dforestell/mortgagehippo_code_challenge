@@ -20,7 +20,7 @@ class TransactionsController < ApplicationController
 			end
 		end
 
-		# alert_admins if @coin.quantity < 4 
+		NotifyAdmins.low_quantity(@coin).deliver if @coin.quantity < 4 
 	end
 
 	def make_deposit
