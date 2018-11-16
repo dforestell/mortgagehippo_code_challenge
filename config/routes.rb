@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :transactions, only: [:index]
   resources :deposits, controller: 'transactions', only: [:create], action: "make_deposit"
   resources :withdraws, controller: 'transactions', only: [:create], action: "make_withdrawl"
-  resources :users do
+  resources :users, only: [:create] do
   	resources :transactions, only: [:index], action: "user_transactions"
   end
 end
