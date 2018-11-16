@@ -37,5 +37,14 @@ class TransactionsController < ApplicationController
 		end
 	end
 
+	def user_transactions
+		@transactions = Transaction.where(user_id: params[:user_id])
+		if @transactions.empty? == false
+			render json: @transactions, status: :ok
+		else
+			render json: {status: "error", code: 300, message: "I couldn't find any transactions for the User you specified"}
+		end
+	end
+
 
 end 
