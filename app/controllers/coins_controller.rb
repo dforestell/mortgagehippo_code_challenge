@@ -1,4 +1,5 @@
 class CoinsController < ApplicationController
+	before_action :authenticate!
 
 	def index
 		@coins = Coin.all
@@ -17,10 +18,7 @@ class CoinsController < ApplicationController
 
 	def show
 		@coin = Coin.find(params[:id])
-		p @coin
 		render json: @coin, status: :ok
-		
-
 	end
 
 	def update
