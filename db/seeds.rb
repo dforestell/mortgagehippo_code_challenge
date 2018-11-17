@@ -17,4 +17,4 @@ Transaction.create(transaction_type: "Withdrawl", coin_type: "Quarter", user_id:
 Transaction.create(transaction_type: "Withdrawl", coin_type: "Dime", user_id: 1)
 
 Admin.create(name: "Dillon", email: "djlf729@gmail.com")
-Admin.create(name:"Maggie", email: "mfergie1117@yahoo.com")
+Admin.create(name:"Elliott", email: "elliott@mortgagehippo.com")
