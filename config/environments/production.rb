@@ -61,9 +61,9 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    :address => "smtp.mail.com",
+    :address => "smtp.gmail.com",
     :port => 587,
-    :domain => "'dillon-hippo-challenge.herokuapp.com'",
+    :domain => "dillon-hippo-challenge.herokuapp.com",
     :user_name => "HippoChallenge1@gmail.com",
     :password => "Mortgage1",
     :authentication => :plain,
