@@ -15,3 +15,6 @@ Transaction.create(transaction_type: "Deposit", coin_type: "Quarter", user_id: 2
 
 Transaction.create(transaction_type: "Withdrawl", coin_type: "Quarter", user_id: 1)
 Transaction.create(transaction_type: "Withdrawl", coin_type: "Dime", user_id: 1)
+
+Admin.create(name: "Dillon", email: "djlf729@gmail.com")
+Admin.create(name:"Maggie", email: "mfergie1117@yahoo.com")
